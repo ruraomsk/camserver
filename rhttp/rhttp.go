@@ -54,7 +54,7 @@ type Stream struct {
 
 func OpenHttp(uri string) (s *Stream, err error) {
 	s = new(Stream)
-	s.Client = http.Client{Timeout: time.Second}
+	s.Client = http.Client{Timeout: 20 * time.Second}
 	s.Url = uri
 	s.Resp, err = s.Client.Get(uri)
 	return s, nil
